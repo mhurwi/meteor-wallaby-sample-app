@@ -1,14 +1,11 @@
 var wallabyWebpack = require('wallaby-webpack');
 var webpackPostProcessor = wallabyWebpack({
-  // externals: { "react": "React" },
   resolve: { extensions: ['', '.js', '.jsx'] }
 });
 
 module.exports = function (wallaby) {
   return {
     files: [
-      // { pattern: 'node_modules/enzyme/*.*', instrument: false, load: false },
-      { pattern: 'node_modules/react/dist/react-with-addons.js', instrument: false },
       { pattern: 'imports/ui/widget-item.jsx', load: false },
     ],
     tests: [

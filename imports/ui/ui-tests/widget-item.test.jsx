@@ -9,7 +9,7 @@ describe('<WidgetItem />', () => {
     console.log(buttonText)
     expect(buttonText).to.equal('Click Me');
   });
-  //
+
   it('has foo text', () => {
     const fooText = $(<WidgetItem fooText='chickadee'/>).render().find('p').text();
     console.log(fooText)
