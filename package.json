@@ -2,7 +2,8 @@
   "name": "plain",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor run",
+    "chimp:watch": "node_modules/chimp/bin/chimp.js --watch --path=tests"
   },
   "dependencies": {
     "domready": "^1.0.8",
@@ -22,6 +23,7 @@
     "babel-preset-stage-2": "6.x.x",
     "babel-root-slash-import": "1.x.x",
     "chai": "3.x.x",
+    "chimp": "^0.34.1",
     "eslint": "1.10.x",
     "eslint-plugin-react": "3.15.x",
     "jsdom": "^8.0.4",

@@ -7,7 +7,7 @@ export const WidgetItem = React.createClass({
     return (
       <div>
         <h1>Hi Banana Pie</h1>
-        <p>{ fooText }</p>
+        <p className='foo-text'>{ fooText }</p>
         <button ref='test-button'>Click Me</button>
       </div>
     );
