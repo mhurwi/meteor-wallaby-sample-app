@@ -4,6 +4,10 @@ var webpackPostProcessor = wallabyWebpack({
 });
 
 module.exports = function (wallaby) {
+  if (!wallaby) return;
+
+  console.log(process)
+
   return {
     files: [
       { pattern: 'imports/ui/widget-item.jsx', load: false },
@@ -18,7 +22,7 @@ module.exports = function (wallaby) {
        })
     },
     testFramework: 'mocha',
-    debug: true,
+    debug: false,
     postprocessor: webpackPostProcessor,
     bootstrap: function () {
         window.__moduleBundler.loadTests();
