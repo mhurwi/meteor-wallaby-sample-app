@@ -10,10 +10,10 @@ module.exports = function (wallaby) {
 
   return {
     files: [
-      { pattern: 'imports/ui/widget-item.jsx', load: false },
+      { pattern: 'imports/ui/components/widget-item.jsx', load: false },
     ],
     tests: [
-      { pattern: 'imports/ui/ui-tests/*.js*', load: false }
+      { pattern: 'imports/ui/components/_tests/*.js*', load: false }
     ],
     compilers: {
        '**/*.js*': wallaby.compilers.babel({
