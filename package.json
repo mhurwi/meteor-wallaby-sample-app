@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "meteor run",
-    "chimp:watch": "node_modules/chimp/bin/chimp.js --watch --path=tests"
+    "chimp:watch": "node_modules/chimp/bin/chimp.js --watch --path=tests --ddp=http://localhost:3000"
   },
   "dependencies": {
     "domready": "^1.0.8",
@@ -16,6 +16,7 @@
     "react-addons": "^0.9.1-deprecated",
     "react-bootstrap": "^0.29.3",
     "react-dom": "^15.0.2",
+    "react-komposer": "^1.8.0",
     "react-router": "^2.4.0"
   },
   "devDependencies": {

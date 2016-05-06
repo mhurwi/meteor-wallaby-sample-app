@@ -22,3 +22,4 @@ insecure                # Allow all DB writes from clients (for prototyping)
 practicalmeteor:mocha
 accounts-base
 accounts-password
+xolvio:backdoor
