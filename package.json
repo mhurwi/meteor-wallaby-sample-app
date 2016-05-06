@@ -7,12 +7,16 @@
   },
   "dependencies": {
     "domready": "^1.0.8",
+    "formsy-react": "^0.18.0",
+    "formsy-react-components": "^0.7.1",
     "lodash": "4.6.1",
     "meteor-node-stubs": "~0.2.0",
     "moment": "2.11.2",
     "react": "^15.0.2",
     "react-addons": "^0.9.1-deprecated",
-    "react-dom": "^15.0.2"
+    "react-bootstrap": "^0.29.3",
+    "react-dom": "^15.0.2",
+    "react-router": "^2.4.0"
   },
   "devDependencies": {
     "babel-core": "6.x.x",
