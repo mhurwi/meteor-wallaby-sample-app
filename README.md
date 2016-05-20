@@ -59,3 +59,9 @@ Also Chimp for BDD acceptance testing.
 - [wallaby-webpack](https://wallabyjs.com/docs/integration/webpack.html)
   - integrates webpack into wallaby to build client side code
   - client side code runs in phantomjs by default
+
+## UI Doodads
+
+- [react-s-alert](https://github.com/juliancwirko/react-s-alert)
+  - flash notifications to the user with a simple api
+  - see ```imports/ui/layouts/app.js``` for the main component
