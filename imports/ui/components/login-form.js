@@ -15,7 +15,7 @@ import {
 
 } from 'formsy-react-components';
 
-export const Login = React.createClass({
+export const LoginForm = React.createClass({
 
   resetForm() {
     this.refs.form.reset();
@@ -54,15 +54,13 @@ export const Login = React.createClass({
 
   render() {
 
-    let formClassName = 'vertical m-t';
-
-    var sharedProps = {
+    const {error} = this.props;
+    const formClassName = 'vertical m-t';
+    const sharedProps = {
       layout: this.state.layout,
       validatePristine: this.state.validatePristine,
       disabled: this.state.disabled
     };
-
-    const {error} = this.props;
 
     return (
 

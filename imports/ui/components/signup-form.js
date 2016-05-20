@@ -14,7 +14,7 @@ import {
 
 } from 'formsy-react-components';
 
-export const Signup = React.createClass({
+export const SignupForm = React.createClass({
 
   resetForm() {
     this.refs.form.reset();
