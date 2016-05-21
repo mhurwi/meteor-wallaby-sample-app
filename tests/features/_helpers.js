@@ -26,6 +26,7 @@ module.exports = function () {
     browser.url(this.testProps.rootUrl);
     browser.execute(function() { Meteor.logout(); });
     server.execute(function (){
+      Meteor.call('clearEmails');
       Meteor.users.remove({});
     });
     browser.pause(600);

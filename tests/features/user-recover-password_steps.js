@@ -18,8 +18,6 @@ module.exports = function() {
     const email = server.call('getSentEmails')[0];
     const url = email.text.match(this.testProps.uriPattern)[0];
 
-    console.log(url);
-
     browser.url(url);
   });
 

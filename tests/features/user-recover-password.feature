@@ -3,7 +3,6 @@ Feature: User Recover Password
   As a user
   I want to recover my password that I forgot
 
-  @watch
   Scenario: As a user
     Given that a user exists with email "test@example.com"
     When I click to recover my password for "test@example.com"
