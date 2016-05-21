@@ -1,0 +1,8 @@
+{
+  "public": {
+    "key": "value"
+  },
+  "private": {
+    "environment": "test"
+  }
+}

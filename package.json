@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "start": "meteor run",
+    "start:testing": "meteor run --settings settings-test.json",
     "chimp:watch": "node_modules/chimp/bin/chimp.js --watch --path=tests --ddp=http://localhost:3000"
   },
   "dependencies": {
