@@ -9,6 +9,7 @@ export const Login = React.createClass({
       <div>
         <LoginForm />
         <Link to="/signup">or signup</Link>
+        <Link to="/recover-password">Forgot your password?</Link>
       </div>
     );
   }
