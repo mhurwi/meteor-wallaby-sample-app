@@ -31,4 +31,8 @@ module.exports = function () {
     });
     browser.pause(600);
   });
+
+  this.Given(/^that I am logged in as "([^"]*)"$/, function (email) {
+    this.testProps.createTestUser(email);
+  });
 };

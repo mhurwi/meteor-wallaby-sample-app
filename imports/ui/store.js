@@ -2,10 +2,8 @@ import { createStore, compose } from 'redux';
 import { syncHistoryWithStore} from 'react-router-redux';
 import { browserHistory } from 'react-router';
 
-// import the root reducer
 import rootReducer from './reducers/index';
 
-// create an object for the default data
 const defaultState = {
   widgets: [
     {id: 1, name: 'first widget'},
@@ -14,6 +12,7 @@ const defaultState = {
   ]
 };
 
+// for use with redux dev tools
 const enhancers = compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
 );
