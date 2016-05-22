@@ -7,7 +7,7 @@ export const WidgetIndex = React.createClass({
     return (
       <div>
         <h1>Widget Index</h1>
-        <WidgetItem fooText="Hurray!"/>
+        { this.props.widgets.map( widget => <WidgetItem {...widget} key={widget.id}/> ) }
       </div>
     );
   }

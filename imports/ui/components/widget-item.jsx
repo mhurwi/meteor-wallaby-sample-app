@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
+import Alert from 'react-s-alert';
 
 export const WidgetItem = React.createClass({
+  causeAlert() {
+    Alert.warning(this.props.name, {
+      position: 'top-right',
+      effect: 'stackslide',
+    });
+  },
+
   render() {
-    const fooText = this.props.fooText || 'crabapple';
+    const name = this.props.name || 'crabapple';
 
     return (
       <div>
-        <h1>Hi Banana Pie</h1>
-        <p className='foo-text'>{ fooText }</p>
-        <button ref='test-button'>Click Me</button>
+        <h3>Widget Item</h3>
+        <p className='foo-text'>{ name }</p>
+                <button onClick={this.causeAlert}>Widget #{ this.props.id }</button>
       </div>
     );
   }
