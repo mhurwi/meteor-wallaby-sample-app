@@ -1,16 +1,22 @@
-import React, { Component } from 'react';
-import { WidgetItem } from './widget-item';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from '../actions/actionCreators';
+import Index from './index';
 
-// App component - represents the whole app
-export default class App extends Component {
-  render() {
-    return (
-      <div className="container">
-        <header>
-          <h1>Application Banana</h1>
-          <WidgetItem fooText="pizza"/>
-        </header>
-      </div>
-    );
-  }
+function mapStateToProps(state) {
+  return  {
+    // posts: state.posts,
+    // comments: state.comments
+    user: Meteor.user(),
+    foo: 'bar'
+  };
 }
+
+function mapDispatchToProps(dispatch) {
+  // return bindActionCreators(actionCreators, dispatch);
+  return {};
+}
+
+const App = connect(mapStateToProps, mapDispatchToProps)(Main);
+
+export default App;

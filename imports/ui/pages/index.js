@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router';
 import Alert from 'react-s-alert';
 
 import UserDetails from '../containers/user-details';
-import { WidgetItem } from '../components/widget-item';
 import { Meteor } from 'meteor/meteor'
 
 export const Index = React.createClass({
@@ -16,9 +16,11 @@ export const Index = React.createClass({
   render() {
     return (
       <div>
-        <h2 className="index-header">Index</h2>
+        <h2 className="index-header">
+          <Link to="/">Index</Link>
+        </h2>
         <UserDetails />
-        <WidgetItem fooText="Hurray!"/>
+        <Link to="/widgets">Widgets Index</Link>
         <button onClick={this.causeAlert}>Alert me!!!</button>
       </div>
     );

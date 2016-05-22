@@ -1,9 +1,15 @@
+import { Meteor } from 'meteor/meteor';
+
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import { Meteor } from 'meteor/meteor';
+import { Provider } from 'react-redux';
+
+import store, { history } from '../../ui/store';
+
 import { App } from '../../ui/layouts/app';
 import { Index } from '../../ui/pages/index';
+import { WidgetIndex } from '../../ui/pages/widget-index';
 import { Login } from '../../ui/pages/login';
 import { NotFound } from '../../ui/pages/not-found';
 import { RecoverPassword } from '../../ui/pages/recover-password';
@@ -19,18 +25,25 @@ const requireAuth = (nextState, replace) => {
   }
 };
 
-Meteor.startup(() => {
-  render(
-    <Router history={ browserHistory }>
+const routes = (
+  <Provider store={store}>
+    <Router history={ history }>
       <Route path="/" component={ App }>
         <IndexRoute name="index" component={ Index } onEnter={ requireAuth } />
+        <Route name="widgets" path="/widgets" component={ WidgetIndex } />
         <Route name="login" path="/login" component={ Login } />
         <Route name="signup" path="/signup" component={ Signup } />
         <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />
         <Route name="reset-password" path="/reset-password/:token" component={ ResetPassword } />
         <Route path="*" component={ NotFound } />
       </Route>
-    </Router>,
+    </Router>
+  </Provider>
+);
+
+Meteor.startup(() => {
+  render(
+    routes,
     document.getElementById('react-root')
   );
 });

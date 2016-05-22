@@ -20,3 +20,10 @@ export function resetPassword(token, password) {
     browserHistory.push('/')
   });
 }
+
+export function createWidget(state, action) {
+  console.log('clientActions: ', state, action);
+  return {
+    type: 'CREATE_WIDGET'
+  };
+}
