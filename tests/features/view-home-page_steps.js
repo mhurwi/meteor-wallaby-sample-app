@@ -5,7 +5,7 @@ module.exports = function() {
   });
 
   this.Then(/^I should see widget related information$/, function () {
-    const selector = '.foo-text';
+    const selector = '.widget-name';
     browser.waitForExist(selector);
     expect(browser.isVisible(selector)).toEqual(true);
   });

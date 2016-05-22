@@ -15,7 +15,7 @@ export const WidgetItem = React.createClass({
     return (
       <div>
         <h3>Widget Item</h3>
-        <p className='foo-text'>{ name }</p>
+        <p className='widget-name'>{ name }</p>
                 <button onClick={this.causeAlert}>Widget #{ this.props.id }</button>
       </div>
     );
