@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Email } from 'meteor/email';
 
 function stubEmailSend() {
-  if (Meteor.settings.private.environment !== 'test') return false;
+  if (!Meteor.settings || !Meteor.settings.private || Meteor.settings.private.environment !== 'test') return false;
 
   console.log('=-=-=-=-=-=-=-= setup-if-testing: stubEmailSend -=-=-=-');
 
