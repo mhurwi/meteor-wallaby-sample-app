@@ -9,7 +9,7 @@ import store, { history } from '../../ui/store';
 
 import { App } from '../../ui/layouts/app';
 import { Index } from '../../ui/pages/index';
-import { WidgetIndex } from '../../ui/pages/widget-index';
+import { Widgets } from '../../ui/pages/widgets';
 import { Login } from '../../ui/pages/login';
 import { NotFound } from '../../ui/pages/not-found';
 import { RecoverPassword } from '../../ui/pages/recover-password';
@@ -30,7 +30,7 @@ const routes = (
     <Router history={ history }>
       <Route path="/" component={ App }>
         <IndexRoute name="index" component={ Index } onEnter={ requireAuth } />
-        <Route name="widgets" path="/widgets" component={ WidgetIndex } />
+        <Route name="widgets" path="/widgets" component={ Widgets } />
         <Route name="login" path="/login" component={ Login } />
         <Route name="signup" path="/signup" component={ Signup } />
         <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />

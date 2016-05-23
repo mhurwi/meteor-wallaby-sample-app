@@ -3,13 +3,11 @@ import { syncHistoryWithStore} from 'react-router-redux';
 import { browserHistory } from 'react-router';
 
 import rootReducer from './reducers/index';
+import Widgets from '../api/widgets/widgets-collection';
 
 const defaultState = {
-  widgets: [
-    {id: 1, name: 'first widget'},
-    {id: 2, name: 'second widget'},
-    {id: 3, name: 'third widget'},
-  ]
+  user: Meteor.user(),
+  foo: 'bar'
 };
 
 // for use with redux dev tools

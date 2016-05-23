@@ -1,6 +1,8 @@
 import { Accounts } from 'meteor/accounts-base';
 import { browserHistory } from 'react-router'
 
+import Widgets from '../../api/widgets/widgets-collection';
+
 export function recoverPassword(email) {
   console.log('clientActions: recoverPassword');
   Accounts.forgotPassword({email: email}, (err) => {
@@ -21,9 +23,9 @@ export function resetPassword(token, password) {
   });
 }
 
-export function createWidget(state, action) {
-  console.log('clientActions: ', state, action);
-  return {
-    type: 'CREATE_WIDGET'
-  };
+export function createWidget(data) {
+  console.log('clientActions: ', data);
+
+  // TODO: do this with a validated method
+  Widgets.insert({ ...data });
 }

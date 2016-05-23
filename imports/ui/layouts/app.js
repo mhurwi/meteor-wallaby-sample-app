@@ -2,6 +2,7 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import Widgets from '../../api/widgets/widgets-collection';
 import * as clientActions from '../actions/clientActions';
 import Main from './main';
 
@@ -9,7 +10,7 @@ import Main from './main';
 function mapStateToProps(state) {
   return  {
     user: Meteor.user(),
-    widgets: state.widgets,
+    widgets: Widgets.find().fetch(),
   };
 }
 
