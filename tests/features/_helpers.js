@@ -28,6 +28,7 @@ module.exports = function () {
     server.execute(function (){
       Meteor.call('clearEmails');
       Meteor.users.remove({});
+      Widgets.remove({});
     });
     browser.pause(600);
   });
