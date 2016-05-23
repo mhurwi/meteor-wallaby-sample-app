@@ -10,7 +10,6 @@ function mapStateToProps(state) {
   return  {
     user: Meteor.user(),
     widgets: state.widgets,
-    foo: 'bar'
   };
 }
 
