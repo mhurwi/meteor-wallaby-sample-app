@@ -1,19 +1,13 @@
-var wallabyWebpack = require('wallaby-webpack');
-var webpackPostProcessor = wallabyWebpack({
-  resolve: { extensions: ['', '.js', '.jsx'] }
-});
-
 module.exports = function (wallaby) {
-  if (!wallaby) return;
-
-  console.log(process)
 
   return {
     files: [
-      { pattern: 'imports/ui/components/widget-item.jsx', load: false },
+      { pattern: 'imports/ui/components/widget-item.jsx' },
+      { pattern: 'imports/**/*.jsx' },
+      { pattern: 'imports/**/*.test.jsx', "ignore": true },
     ],
     tests: [
-      { pattern: 'imports/ui/components/_tests/*.js*', load: false }
+      'imports/**/*.test.jsx'
     ],
     compilers: {
        '**/*.js*': wallaby.compilers.babel({
@@ -22,10 +16,8 @@ module.exports = function (wallaby) {
        })
     },
     testFramework: 'mocha',
-    debug: false,
-    postprocessor: webpackPostProcessor,
-    bootstrap: function () {
-        window.__moduleBundler.loadTests();
+    env: {
+      type: 'node'
     }
   };
 };
