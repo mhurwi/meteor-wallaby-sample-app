@@ -9,7 +9,7 @@ import store, { history } from '../../ui/store';
 
 import { App } from '../../ui/layouts/app';
 import { Index } from '../../ui/pages/index';
-import { Widgets } from '../../ui/pages/widgets';
+import Widgets from '../../ui/pages/widgets';
 import { Login } from '../../ui/pages/login';
 import { NotFound } from '../../ui/pages/not-found';
 import { RecoverPassword } from '../../ui/pages/recover-password';
