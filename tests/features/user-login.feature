@@ -1,3 +1,4 @@
+@watch
 Feature: User logs in
 
   As a user,

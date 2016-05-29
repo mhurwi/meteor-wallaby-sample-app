@@ -34,6 +34,9 @@ Also Chimp for BDD acceptance testing.
 - [React](https://facebook.github.io/react/)
   - for views
 
+- [react-komposer](https://github.com/kadirahq/react-komposer)
+  - for reactively adding meteor collection data to a component
+
 - [mocha](https://mochajs.org/)
   - testing framework
 

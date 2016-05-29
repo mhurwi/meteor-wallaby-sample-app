@@ -30,7 +30,7 @@ const routes = (
     <Router history={ history }>
       <Route path="/" component={ App }>
         <IndexRoute name="index" component={ Index } onEnter={ requireAuth } />
-        <Route name="widgets" path="/widgets" component={ Widgets } />
+        <Route name="widgets" path="/widgets" component={ Widgets } onEnter={ requireAuth }/>
         <Route name="login" path="/login" component={ Login } />
         <Route name="signup" path="/signup" component={ Signup } />
         <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />

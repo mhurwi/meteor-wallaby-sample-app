@@ -6,6 +6,7 @@ module.exports = function () {
   });
 
   this.When(/^I visit the login page$/, function () {
+    browser.url(this.testProps.rootUrl + 'login');
     const emailField = 'input[name="email"]';
     browser.waitForExist(emailField, 200);
     browser.setValue(emailField, 'test@example.com');

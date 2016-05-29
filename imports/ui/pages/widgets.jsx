@@ -9,7 +9,7 @@ export class Widgets extends React.Component {
     return (
       <div>
         <h1>Widgets</h1>
-        <WidgetForm />
+        <WidgetForm createWidget={this.props.createWidget}/>
         <WidgetIndex />
       </div>
     );

@@ -16,6 +16,7 @@ module.exports = function () {
     browser.pause(500);
 
     const widgetNames = '.widget-name'
+    browser.waitForExist(widgetNames);
     expect(browser.getText('.widget-name')).toMatch('Test Widget');
   });
 };

@@ -24,7 +24,7 @@ module.exports = function () {
       uriPattern
     };
     browser.url(this.testProps.rootUrl);
-    browser.execute(function() { Meteor.logout(); });
+    browser.execute(function() { Meteor.logout(); })
     server.execute(function (){
       Meteor.call('clearEmails');
       Meteor.users.remove({});
@@ -35,5 +35,14 @@ module.exports = function () {
 
   this.Given(/^that I am logged in as "([^"]*)"$/, function (email) {
     this.testProps.createTestUser(email);
+    browser.pause(500);
+
+    browser.url(this.testProps.rootUrl + 'login');
+    const emailField = 'input[name="email"]';
+    browser.waitForExist(emailField, 200);
+    browser.setValue(emailField, 'test@example.com');
+    browser.setValue('input[name="password"]', 'testtest');
+    browser.click('input[type="submit"]');
+    browser.pause(500);
   });
 };

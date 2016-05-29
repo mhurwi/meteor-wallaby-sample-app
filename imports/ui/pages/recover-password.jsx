@@ -7,7 +7,7 @@ export const RecoverPassword = React.createClass({
   render() {
     return (
       <div>
-        <RecoverPasswordForm />
+        <RecoverPasswordForm recoverPassword={this.props.recoverPassword}/>
       </div>
     );
   }

@@ -4,8 +4,6 @@ import { browserHistory } from 'react-router';
 import Formsy from 'formsy-react';
 import { Input, Row } from 'formsy-react-components';
 
-import { createWidget } from '../actions/clientActions.js';
-
 export const WidgetForm = React.createClass({
 
   resetForm() {
@@ -14,7 +12,7 @@ export const WidgetForm = React.createClass({
 
   validSubmit(data) {
     console.log('WidgetForm: validSubmit: ', data.name);
-    createWidget({...data});
+    this.props.createWidget({...data});
     this.refs.form.reset();
   },
 

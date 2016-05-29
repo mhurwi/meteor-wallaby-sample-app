@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router';
 import Formsy from 'formsy-react';
 import { Input, Row } from 'formsy-react-components';
 
-import { resetPassword } from '../actions/clientActions.js'
+import { resetPassword } from '../actions/actionCreators.js'
 
 export const ResetPasswordForm = React.createClass({
 
@@ -13,7 +13,7 @@ export const ResetPasswordForm = React.createClass({
   },
 
   validSubmit(data) {
-    resetPassword(this.props.token, data.password);
+    this.props.resetPassword(this.props.token, data.password);
   },
 
   invalidSubmit() {

@@ -4,8 +4,6 @@ import { browserHistory } from 'react-router';
 import Formsy from 'formsy-react';
 import { Input, Row } from 'formsy-react-components';
 
-import { recoverPassword } from '../actions/clientActions.js'
-
 export const RecoverPasswordForm = React.createClass({
 
   resetForm() {
@@ -13,7 +11,7 @@ export const RecoverPasswordForm = React.createClass({
   },
 
   validSubmit(data) {
-    recoverPassword(data.email);
+    this.props.recoverPassword(data.email);
   },
 
   invalidSubmit() {
