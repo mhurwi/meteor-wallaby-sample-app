@@ -1,0 +1,7 @@
+const actionTypes = {
+  RECOVER_PASSWORD: 'RECOVER_PASSWORD',
+  RESET_PASSWORD: 'RESET_PASSWORD',
+  CREATE_WIDGET_SUCCESS: 'CREATE_WIDGET_SUCCESS',
+};
+
+export default actionTypes;

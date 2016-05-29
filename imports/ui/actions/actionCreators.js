@@ -1,9 +1,9 @@
-import Constants from './constants';
+import actionTypes from './actionTypes';
 
 export function recoverPassword(email) {
   console.log('actionCreators: recoverPassword');
   return {
-    type: Constants.RECOVER_PASSWORD,
+    type: actionTypes.RECOVER_PASSWORD,
     email
   };
 }
@@ -12,16 +12,25 @@ export function recoverPassword(email) {
 export function resetPassword(token, password) {
   console.log('actionCreators: resetPassword');
   return {
-    type: Constants.RESET_PASSWORD,
+    type: actionTypes.RESET_PASSWORD,
     token,
     password
   };
 }
 
-export function createWidget(data) {
-  console.log('actionCreators: ', data);
+export function createWidgetSuccess(data) {
   return {
-    type: Constants.CREATE_WIDGET,
+    type: actionTypes.CREATE_WIDGET_SUCCESS,
     ...data
   };
+}
+
+export function createWidget(data) {
+  return function(dispatch) {
+    Widgets.insert(data, (err, res) => {
+      if (err) throw new Meteor.Error(err);
+
+      dispatch(createWidgetSuccess(res));
+    })
+  }
 }

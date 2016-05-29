@@ -1,7 +1,0 @@
-const Constants = {
-  RECOVER_PASSWORD: 'RECOVER_PASSWORD',
-  RESET_PASSWORD: 'RESET_PASSWORD',
-  CREATE_WIDGET: 'CREATE_WIDGET',
-};
-
-export default Constants;
