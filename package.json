@@ -4,7 +4,8 @@
   "scripts": {
     "start": "meteor run",
     "start:testing": "meteor run --settings settings-test.json",
-    "chimp:watch": "node_modules/chimp/bin/chimp.js --watch --path=tests --ddp=http://localhost:3000"
+    "chimp": "node_modules/chimp/bin/chimp.js --path=tests --ddp=http://localhost:3000",
+    "chimp:watch": "npm run chimp -- --watch"
   },
   "dependencies": {
     "domready": "^1.0.8",
@@ -34,6 +35,7 @@
     "babel-root-slash-import": "1.x.x",
     "chai": "3.x.x",
     "chimp": "^0.34.1",
+    "enzyme": "^2.3.0",
     "eslint": "1.10.x",
     "eslint-plugin-react": "3.15.x",
     "jsdom": "^8.0.4",
