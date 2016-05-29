@@ -2,12 +2,11 @@ module.exports = function (wallaby) {
 
   return {
     files: [
-      { pattern: 'imports/ui/components/widget-item.jsx' },
-      { pattern: 'imports/**/*.jsx' },
-      { pattern: 'imports/**/*.test.jsx', "ignore": true },
+      { pattern: 'imports/ui/**/*.jsx' },
+      { pattern: 'imports/ui/**/*.test.jsx', "ignore": true },
     ],
     tests: [
-      'imports/**/*.test.jsx'
+      'imports/ui/**/*.test.jsx'
     ],
     compilers: {
        '**/*.js*': wallaby.compilers.babel({
