@@ -1,19 +1,8 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-// import ReactDOM from 'react-dom';
 import { browserHistory } from 'react-router';
 import Formsy from 'formsy-react';
-import {
-  // Checkbox,
-  // CheckboxGroup,
-  Input,
-  // RadioGroup,
-  Row,
-  // Select,
-  // File,
-  // Textarea
-
-} from 'formsy-react-components';
+import { Input, Row } from 'formsy-react-components';
 
 export const LoginForm = React.createClass({
 
