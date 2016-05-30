@@ -5,5 +5,6 @@ Feature: View Home Page
   I want to view the home page of this widget app.
 
   Scenario:
+    Given that I am logged in as "test@example.com"
     When I visit the home page
-    Then I should see widget related information
+    Then I should see a link to the widgets index

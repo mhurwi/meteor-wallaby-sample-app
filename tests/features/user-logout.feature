@@ -1,4 +1,3 @@
-@watch
 Feature: User Logs Out
 
   As a user,

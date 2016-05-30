@@ -8,7 +8,7 @@ const UserDetails = ({user}) => {
     <Row>
       <Col xs={ 12 }>
         <h4 className="page-header">User Details</h4>
-        <p>{ email }</p>
+        <p className="user-email">{ email }</p>
       </Col>
     </Row>
  )
