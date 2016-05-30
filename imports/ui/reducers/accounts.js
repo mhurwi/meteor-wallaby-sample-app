@@ -1,7 +1,6 @@
 import actionTypes from '../actions/actionTypes';
 
 export default function accounts(state = {}, action) {
-  console.log('reducers/accounts')
   switch (action.type) {
     case actionTypes.RECOVER_PASSWORD_SUCCESS:
       console.log('RECOVER_PASSWORD_SUCCESS');
@@ -9,6 +8,9 @@ export default function accounts(state = {}, action) {
     case actionTypes.RESET_PASSWORD_SUCCESS:
       console.log('RESET_PASSWORD_SUCCESS');
       return state;
+    case actionTypes.LOGOUT_SUCCESS:
+      console.log('LOGOUT_SUCCESS');
+      return { loggedIn: false };
     default:
       return state;
   }

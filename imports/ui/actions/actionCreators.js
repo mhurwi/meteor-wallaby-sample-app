@@ -19,6 +19,12 @@ export function resetPasswordSuccess(token, password) {
   };
 }
 
+export function logoutSuccess() {
+  return {
+    type: actionTypes.LOGOUT_SUCCESS
+  }
+}
+
 export function recoverPassword(email) {
   return function(dispatch) {
     console.log('actionCreators: recoverPassword');
@@ -45,6 +51,16 @@ export function resetPassword(token, password) {
       Alert.success('Your password has been reset.');
       browserHistory.push('/')
       dispatch(resetPasswordSuccess(token, password))
+    });
+  }
+}
+
+export function logout() {
+  console.log('actionCreators: logout')
+  return function(dispatch) {
+    Meteor.logout((err) => {
+      browserHistory.push('/login')
+      dispatch(logoutSuccess());
     });
   }
 }
