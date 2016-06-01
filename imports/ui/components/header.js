@@ -5,13 +5,29 @@ import { Link, IndexLink } from 'react-router';
 
 const Header = ({user, logout}) => {
 
+  function userNav() {
+    return (
+      <div>
+        <IndexLink to="/dashboard" activeClassName="active">Dashboard</IndexLink>
+        {" | "}
+        <Link to="#" className="logout-button" onClick={logout}>Logout</Link>
+      </div>
+    )
+  }
+
+  function guestNav() {
+    return (
+      <div>
+        <IndexLink to="/" activeClassName="active">Home</IndexLink>
+        {" | "}
+        <Link to="/login">Login</Link>
+      </div>
+    )
+  }
+
   return (
     <nav>
-      <IndexLink to="/" activeClassName="active">Home</IndexLink>
-      {" | "}
-      { user ? <Link to="#" className="logout-button" onClick={logout}>Logout</Link> :
-        <Link to="/login">Login</Link>
-      }
+      { user ? userNav() : guestNav() }
     </nav>
   );
 };

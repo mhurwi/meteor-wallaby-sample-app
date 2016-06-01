@@ -5,7 +5,7 @@ module.exports = function () {
     this.testProps.createTestUser(email);
   });
 
-  this.When(/^I visit the login page$/, function () {
+  this.When(/^I login$/, function () {
     browser.url(this.testProps.rootUrl + 'login');
     const emailField = 'input[name="email"]';
     browser.waitForExist(emailField, 200);
@@ -15,9 +15,9 @@ module.exports = function () {
   });
 
   this.Then(/^I can login and see my dashboard$/, function () {
-    const header = '.index-header';
+    const header = '.dashboard-header';
     browser.waitForExist(header);
-    expect(browser.getText(header)).toEqual('Index');
+    expect(browser.isVisible(header)).toEqual(true);
 
     const selector = '.user-email';
     browser.waitForExist(selector, 600);

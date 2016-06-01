@@ -9,6 +9,7 @@ import store, { history } from '../../ui/store';
 
 import { App } from '../../ui/layouts/app';
 import { Index } from '../../ui/pages/index';
+import Dashboard from '../../ui/pages/dashboard';
 import Widgets from '../../ui/pages/widgets';
 import { Login } from '../../ui/pages/login';
 import { NotFound } from '../../ui/pages/not-found';
@@ -29,7 +30,8 @@ const routes = (
   <Provider store={store}>
     <Router history={ history }>
       <Route path="/" component={ App }>
-        <IndexRoute name="index" component={ Index } onEnter={ requireAuth } />
+        <IndexRoute name="index" component={ Index } />
+        <Route name="dashboard" path="/dashboard" component={ Dashboard } onEnter={ requireAuth } />
         <Route name="widgets" path="/widgets" component={ Widgets } onEnter={ requireAuth }/>
         <Route name="login" path="/login" component={ Login } />
         <Route name="signup" path="/signup" component={ Signup } />

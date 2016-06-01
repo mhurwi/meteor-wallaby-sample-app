@@ -6,5 +6,5 @@ Feature: User logs in
 
   Scenario: User logs in
     Given that a user exists with email "test@example.com"
-    When I visit the login page
+    When I login
     Then I can login and see my dashboard

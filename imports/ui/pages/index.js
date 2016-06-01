@@ -13,11 +13,9 @@ export class Index extends React.Component {
   render() {
     return (
       <div>
-        <h2 className="index-header">
-          <Link to="/">Index</Link>
+        <h2 className="landing-header">
+          <Link to="/">Landing Page</Link>
         </h2>
-        <UserDetails user={this.props.user} />
-        <Link to="/widgets">Widgets Index</Link>
       </div>
     );
   }

@@ -7,7 +7,7 @@ export const Signup = React.createClass({
   render() {
     return (
       <div>
-        <SignupForm />
+        <SignupForm signup={this.props.signup} />
         <Link to="/login">or login</Link>
       </div>
     );

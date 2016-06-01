@@ -13,13 +13,7 @@ export const LoginForm = React.createClass({
   validSubmit(data) {
     console.log(data);
 
-    Meteor.loginWithPassword(data.email, data.password, (err) => {
-      if (err && err.reason) {
-        // TODO: Alert(err.reasor, 'warning')
-        console.log(err.reason);
-      }
-      browserHistory.push('/');
-    });
+    this.props.login(data);
   },
 
   invalidSubmit() {

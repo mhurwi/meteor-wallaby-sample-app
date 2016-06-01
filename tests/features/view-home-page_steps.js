@@ -10,4 +10,10 @@ module.exports = function() {
     expect(browser.isVisible(selector)).toEqual(true);
   });
 
+  this.Then(/^I should see the landing page$/, function () {
+    const selector = '.landing-header';
+    browser.waitForExist(selector);
+    expect(browser.isVisible(selector)).toEqual(true);
+  });
+
 };

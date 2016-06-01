@@ -1,11 +1,12 @@
 module.exports = function() {
   'use strict';
 
-  this.When(/^I click to recover my password for "([^"]*)"$/, function (email) {
-    const selector = 'a[href="/recover-password"]';
-    browser.waitForExist(selector);
-    browser.click(selector);
+  this.Given(/^I visit the recover password page$/, function () {
+    browser.url(this.testProps.rootUrl + 'recover-password');
+    browser.pause(50);
+  });
 
+  this.When(/^I click to recover my password for "([^"]*)"$/, function (email) {
     const emailInput = 'input[name="email"]';
     browser.waitForExist(emailInput);
     browser.setValue(emailInput, email);
@@ -30,7 +31,7 @@ module.exports = function() {
     browser.setValue('input[name="password"]', 'apple1234');
     browser.click('input[type="submit"]');
 
-    browser.waitForExist('.index-header', 1000);
-    expect(browser.isVisible('.index-header')).toEqual(true);
+    browser.waitForExist('.dashboard-header', 1000);
+    expect(browser.isVisible('.dashboard-header')).toEqual(true);
   });
 };

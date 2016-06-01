@@ -1,16 +1,34 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { composeWithTracker } from 'react-komposer';
-import { Loading } from '../components/loading';
+
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/stackslide.css';
 
 import Widgets from '../../api/widgets/widgets-collection';
 import * as actionCreators from '../actions/actionCreators';
-import Main from './main';
 
+import Header from '../components/header';
+import { Loading } from '../components/loading';
+
+const Main = React.createClass({
+  render() {
+    return (
+      <div>
+        <Header user={this.props.user} logout={this.props.logout} />
+        {React.cloneElement(this.props.children, this.props)}
+        <Alert stack={{limit: 3}} />
+      </div>
+    )
+  }
+});
 
 const composer = (params, onReady) => {
+  console.log('ui/layouts/app.js composer: user: ', Meteor.user());
   const user = Meteor.user();
 
   onReady(null, { user });

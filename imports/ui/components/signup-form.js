@@ -26,12 +26,8 @@ export const SignupForm = React.createClass({
     if (data.password1 !== data.password2) {
       console.log('Passwords do not match');
     }
-    Accounts.createUser({email: data.email, password: data.password1}, (err) => {
-      if (err && err.reason) {
-        console.log(err.reason);
-      }
-      browserHistory.push('/');
-    });
+
+    this.props.signup(data);
   },
 
   invalidSubmit() {
@@ -134,7 +130,7 @@ export const SignupForm = React.createClass({
               formNoValidate={true}
               disabled={!this.state.canSubmit}
               type="submit"
-              defaultValue="Register" />
+              defaultValue="Signup" />
 
           </Row>
 

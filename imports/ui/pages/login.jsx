@@ -7,8 +7,9 @@ export const Login = React.createClass({
   render() {
     return (
       <div>
-        <LoginForm />
-        <Link to="/signup">or signup</Link>
+        <LoginForm login={this.props.login} />
+        <Link to="/signup">Signup</Link>
+        {" | "}
         <Link to="/recover-password">Forgot your password?</Link>
       </div>
     );

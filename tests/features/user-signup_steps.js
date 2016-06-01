@@ -15,9 +15,9 @@ module.exports = function () {
   });
 
   this.Then(/^I should be redirected to my dashboard$/, function () {
-    const header = '.index-header';
+    const header = '.dashboard-header';
     browser.waitForExist(header);
-    expect(browser.getText(header)).toEqual('Index');
+    expect(browser.isVisible(header)).toEqual(true);
   });
 
   this.Then(/^I should see my email$/, function () {

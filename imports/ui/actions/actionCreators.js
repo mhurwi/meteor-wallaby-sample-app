@@ -3,7 +3,8 @@ import { Accounts } from 'meteor/accounts-base';
 import Alert from 'react-s-alert';
 import { browserHistory } from 'react-router'
 
-
+// These are basic actions that occur after any async
+// thunk-containing action
 export function recoverPasswordSuccess(email) {
   return {
     type: actionTypes.RECOVER_PASSWORD_SUCCESS,
@@ -25,6 +26,22 @@ export function logoutSuccess() {
   }
 }
 
+export function signupSuccess() {
+  return {
+    type: actionTypes.SIGNUP_SUCCESS
+  }
+}
+
+export function loginSuccess() {
+  return {
+    type: actionTypes.LOGIN_SUCCESS
+  }
+}
+
+
+// These are thunk-containing async actions
+// They talk to the api and produce side effects
+// And then they dispatch basic success or failure action
 export function recoverPassword(email) {
   return function(dispatch) {
     console.log('actionCreators: recoverPassword');
@@ -49,8 +66,34 @@ export function resetPassword(token, password) {
       }
 
       Alert.success('Your password has been reset.');
-      browserHistory.push('/')
+      browserHistory.push('/dashboard');
       dispatch(resetPasswordSuccess(token, password))
+    });
+  }
+}
+
+export function signup(data) {
+  console.log('actionCreators: signup')
+  return function(dispatch) {
+    Accounts.createUser({email: data.email, password: data.password1}, (err) => {
+      if (err && err.reason) {
+        Alert.warning(err.reason);
+      }
+      browserHistory.push('/dashboard');
+      dispatch(signupSuccess());
+    });
+  }
+}
+
+export function login(data) {
+  console.log('actionCreators: login')
+  return function(dispatch) {
+    Meteor.loginWithPassword(data.email, data.password, (err) => {
+      if (err && err.reason) {
+        Alert.warning(err.reason)
+      }
+      browserHistory.push('/dashboard');
+      dispatch(loginSuccess());
     });
   }
 }
