@@ -1,8 +1,22 @@
 # Meteor and Wallaby sample app
 
-This app demonstrates one way to write unit tests for server & client side code using Meteor & Wallaby.
 
-Also Chimp for BDD acceptance testing.
+* under development. *
+
+This app represents just one preferred tech stack, with a heavy emphasis on testing. It exists for a few reasons:
+
+1. Demonstrate TDD and BDD with Meteor
+
+  - Building Meteor in a TDD and BDD style has become much more feasible with Meteor's recent updates.
+
+2. Kickstart professional grade apps
+
+ - Useful boilerplates allow you to spin up a simple app that's geared for development and production. This is one such attempt.
+
+3. Learn how to build using the various technologies (Meteor, React, Mocha, etc...)
+
+ - Just picking the stack you like is challenging. But then you have to learn how to use it.
+
 
 ## Getting started:
 
@@ -28,14 +42,21 @@ Also Chimp for BDD acceptance testing.
   - Runs cucumber tests against an actual browser
   - uses [webdriver.io](http://webdriver.io/)
 
-
-## Supporting libraries include:
-
 - [React](https://facebook.github.io/react/)
   - for views
 
+## Supporting libraries include:
+- [redux](http://redux.js.org/)
+  - manages state in a single store
+  - dispatch actions and reduce their effects into state changes
+
+- [react-router](https://github.com/reactjs/react-router)
+  - react's most popular routing solution
+
 - [react-komposer](https://github.com/kadirahq/react-komposer)
   - for reactively adding meteor collection data to a component
+
+## Testing libraries:
 
 - [mocha](https://mochajs.org/)
   - testing framework
@@ -51,8 +72,9 @@ Also Chimp for BDD acceptance testing.
 - [testdouble.js]( https://github.com/testdouble/testdouble.js)
   - alternative to sinon. Easy mocking of imported node modules and meteor packages.
 
-- [teaspoon](https://github.com/jquense/teaspoon)
-  - For testing React components using a jQuery-like syntax
+- [enzyme](https://github.com/airbnb/enzyme)
+  - renders and tests react components
+  - abstracts the complicated React Test Utils library
 
 ## Wallaby specific dependencies:
 
