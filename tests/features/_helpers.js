@@ -3,7 +3,7 @@
 module.exports = function () {
   'use strict';
 
-  const rootUrl = 'http://localhost:3000/';
+  const rootUrl = 'http://localhost:3100/';
   const uriPattern = /\b((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/ig;
 
   function createTestUser(email) {

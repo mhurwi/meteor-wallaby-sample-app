@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "start": "meteor run",
-    "start:testing": "meteor run --settings settings-test.json",
-    "chimp": "node_modules/chimp/bin/chimp.js --path=tests --ddp=http://localhost:3000",
+    "start:testing": "meteor run --settings settings-test.json --port=3100",
+    "chimp": "node_modules/chimp/bin/chimp.js --path=tests --ddp=http://localhost:3100",
     "chimp:watch": "npm run chimp -- --watch",
     "chimp:ci": "node ./.scripts/start.js"
   },

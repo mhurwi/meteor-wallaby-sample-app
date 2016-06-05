@@ -11,11 +11,13 @@ var path = require('path'),
 var baseDir = path.resolve(__dirname, '..'),
   chimpBin = path.resolve(baseDir, 'node_modules/.bin/chimp');
 
+var port = 3100;
+
 var appOptions = {
   settings: 'settings-test.json',
-  port: 3100,
+  port: port,
   env: {
-    ROOT_URL: 'http://localhost:3100',
+    ROOT_URL: 'http://localhost:' + port,
   },
   waitForMessage: 'App running at',
 };
@@ -72,15 +74,13 @@ function startChimp() {
   });
 }
 
-function executeProc(opts, callback) {
-  return exec(opts.command, opts.options);
-}
-
 function startChimpAfterWait(proc, opts, callback) {
   if (!opts.waitForMessage) return;
+
   proc.stdout.on('data', function waitForMessage(data) {
     if (!data.toString().match(opts.waitForMessage)) return;
     if (!callback) return;
+
     callback();
   });
 }
@@ -112,7 +112,7 @@ function setupCloseHandler(proc, opts) {
 }
 
 function startProcess(opts, callback) {
-  var proc = executeProc(opts, callback);
+  var proc = exec(opts.command, opts.options);
 
   startChimpAfterWait(proc, opts, callback);
   handleSilence(proc, opts);
