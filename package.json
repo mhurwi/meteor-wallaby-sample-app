@@ -5,7 +5,8 @@
     "start": "meteor run",
     "start:testing": "meteor run --settings settings-test.json",
     "chimp": "node_modules/chimp/bin/chimp.js --path=tests --ddp=http://localhost:3000",
-    "chimp:watch": "npm run chimp -- --watch"
+    "chimp:watch": "npm run chimp -- --watch",
+    "chimp:ci": "node ./.scripts/start.js"
   },
   "dependencies": {
     "domready": "^1.0.8",
