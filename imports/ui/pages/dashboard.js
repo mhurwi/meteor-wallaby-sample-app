@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
@@ -13,7 +14,7 @@ const composer = (params, onReady) => {
 };
 
 function mapStateToProps(state) {
-  return { banana: 'banana is so good' }
+  return { banana: 'banana is so good' };
 }
 
 class Dashboard extends React.Component {

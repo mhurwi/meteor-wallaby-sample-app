@@ -1,35 +1,51 @@
 import { Meteor } from 'meteor/meteor';
 import { Email } from 'meteor/email';
 
-function stubEmailSend() {
-  if (!Meteor.settings || !Meteor.settings.private || Meteor.settings.private.environment !== 'test') return false;
+import Widgets from '../../api/widgets/widgets-collection';
 
+function stubEmailSend() {
   console.log('=-=-=-=-=-=-=-= setup-if-testing: stubEmailSend -=-=-=-');
 
-  const _fakeInboxCollection = new Package['mongo'].Mongo.Collection('Emails');
+  const fakeInboxCollection = new Package['mongo'].Mongo.Collection('Emails');
 
-  function _initFakeInbox () {
-    _fakeInboxCollection.remove({});
-    Email.send = function (options) {
-      _fakeInboxCollection.insert(options);
+  function initFakeInbox() {
+    fakeInboxCollection.remove({});
+    Email.send = function sendEmail(options) {
+      fakeInboxCollection.insert(options);
     };
   }
-  function _clearEmails () {
-    _fakeInboxCollection.remove({});
+  function clearEmails() {
+    fakeInboxCollection.remove({});
   }
-  function _getSentEmails() {
-    return _fakeInboxCollection.find().fetch();
+  function getSentEmails() {
+    return fakeInboxCollection.find().fetch();
   }
 
-  _clearEmails();
-  _initFakeInbox();
+  clearEmails();
+  initFakeInbox();
 
   Meteor.methods({
-    'clearEmails': _clearEmails,
-    'getSentEmails': _getSentEmails
+    clearEmails,
+    getSentEmails,
   });
+
+  return true;
 }
 
 Meteor.startup(() => {
+  if (!Meteor.settings ||
+      !Meteor.settings.private ||
+      Meteor.settings.private.environment !== 'test') return false;
+
   stubEmailSend();
+
+  Meteor.methods({
+    setupForTest() {
+      Meteor.call('clearEmails');
+      Meteor.users.remove({});
+      Widgets.remove({});
+    },
+  });
+
+  return true;
 });

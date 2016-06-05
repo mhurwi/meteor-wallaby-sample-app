@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 module.exports = function () {
   'use strict';
 
@@ -26,9 +28,7 @@ module.exports = function () {
     browser.url(this.testProps.rootUrl);
     browser.execute(function() { Meteor.logout(); })
     server.execute(function (){
-      Meteor.call('clearEmails');
-      Meteor.users.remove({});
-      Widgets.remove({});
+      Meteor.call('setupForTest')
     });
     browser.pause(600);
   });
