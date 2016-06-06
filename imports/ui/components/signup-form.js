@@ -1,54 +1,49 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
 import { browserHistory } from 'react-router';
 import Formsy from 'formsy-react';
-import {
-  // Checkbox,
-  // CheckboxGroup,
-  Input,
-  // RadioGroup,
-  Row,
-  // Select,
-  // File,
-  // Textarea
+import { Input, Row } from 'formsy-react-components';
 
-} from 'formsy-react-components';
+export class SignupForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      layout: 'vertical',
+      validatePristine: true,
+      disabled: false,
+      canSubmit: false,
+    };
 
-export const SignupForm = React.createClass({
+    this.setState = this.setState.bind(this);
+
+    this.resetForm = this.resetForm.bind(this);
+    this.validSubmit = this.validSubmit.bind(this);
+    this.invalidSubmit = this.invalidSubmit.bind(this);
+    this.enableButton = this.enableButton.bind(this);
+    this.disableButton = this.disableButton.bind(this);
+  }
 
   resetForm() {
     this.refs.form.reset();
-  },
+  }
 
   validSubmit(data) {
-    console.log(data);
-
     if (data.password1 !== data.password2) {
       console.log('Passwords do not match');
     }
 
     this.props.signup(data);
-  },
+  }
 
   invalidSubmit() {
-  },
+  }
 
   enableButton() {
     this.setState({ canSubmit: true });
-  },
+  }
 
   disableButton() {
     this.setState({ canSubmit: false });
-  },
-
-  getInitialState() {
-    return {
-      layout: 'vertical',
-      validatePristine: true,
-      disabled: false,
-      canSubmit: false
-    };
-  },
+  }
 
   render() {
 
@@ -57,10 +52,10 @@ export const SignupForm = React.createClass({
     var sharedProps = {
       layout: this.state.layout,
       validatePristine: this.state.validatePristine,
-      disabled: this.state.disabled
+      disabled: this.state.disabled,
     };
 
-    const {error} = this.props;
+    const { error } = this.props;
 
     return (
 
@@ -70,56 +65,57 @@ export const SignupForm = React.createClass({
           onValid={this.enableButton}
           onInvalid={this.disableButton}
           onChange={this.onChange}
-          ref="form">
+          ref="form"
+        >
 
           <fieldset>
             {error ?
             <div className="alert alert-danger" onClick="">
               <span className="octicon octicon-megaphone" ></span>
               {error}
-            </div> : null }
+            </div> : null}
 
             <Input
-                {...sharedProps}
-                name="email"
-                value=""
-                label="Email"
-                type="email"
-                placeholder="This is an email input."
+              {...sharedProps}
+              name="email"
+              value=""
+              label="Email"
+              type="email"
+              placeholder="This is an email input."
 
-                autoComplete="off"
+              autoComplete="off"
 
-                validations="isEmail"
-                validationError="Please provide a valid email address."
+              validations="isEmail"
+              validationError="Please provide a valid email address."
 
             />
 
 
             <Input
-                {...sharedProps}
-                name="password1"
-                value=""
-                label="Password"
-                type="password"
+              {...sharedProps}
+              name="password1"
+              value=""
+              label="Password"
+              type="password"
 
-                validations="minLength:8"
-                validationError="Your password must be at least 8 characters long."
-                placeholder="Choose a password"
+              validations="minLength:8"
+              validationError="Your password must be at least 8 characters long."
+              placeholder="Choose a password"
             />
             <Input
-                {...sharedProps}
-                name="password2"
-                value=""
-                label="Confirm password"
-                type="password"
+              {...sharedProps}
+              name="password2"
+              value=""
+              label="Confirm password"
+              type="password"
 
 
-                validations="equalsField:password1"
-                validationErrors={{
-                  equalsField: 'Passwords must match.'
-                }}
+              validations="equalsField:password1"
+              validationErrors={{
+                equalsField: 'Passwords must match.',
+              }}
 
-                placeholder="Retype password"
+              placeholder="Retype password"
             />
 
           </fieldset>
@@ -127,10 +123,11 @@ export const SignupForm = React.createClass({
           <Row layout={this.state.layout}>
 
             <input className="btn btn-primary block full-width m-b"
-              formNoValidate={true}
+              formNoValidate
               disabled={!this.state.canSubmit}
               type="submit"
-              defaultValue="Signup" />
+              defaultValue="Signup"
+            />
 
           </Row>
 
@@ -138,4 +135,4 @@ export const SignupForm = React.createClass({
 
     );
   }
-});
+}

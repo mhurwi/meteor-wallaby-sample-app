@@ -1,8 +1,9 @@
+/* eslint-disable */
 module.exports = function () {
   'use strict';
 
   this.Given(/^I visit the signup page$/, function () {
-    browser.url('http://localhost:3000/signup');
+    browser.url(this.testProps.rootUrl + 'signup');
   });
 
   this.When(/^I complete the signup form$/, function () {

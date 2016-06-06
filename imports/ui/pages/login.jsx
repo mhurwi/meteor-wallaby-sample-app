@@ -3,15 +3,13 @@ import { Link } from 'react-router';
 
 import { LoginForm } from '../components/login-form';
 
-export const Login = React.createClass({
-  render() {
-    return (
-      <div>
-        <LoginForm login={this.props.login} />
-        <Link to="/signup">Signup</Link>
-        {" | "}
-        <Link to="/recover-password">Forgot your password?</Link>
-      </div>
-    );
-  }
-});
+export function Login({ login }) {
+  return (
+    <div>
+      <LoginForm login={login} />
+      <Link to="/signup">Signup</Link>
+      {" | "}
+      <Link to="/recover-password">Forgot your password?</Link>
+    </div>
+  );
+}

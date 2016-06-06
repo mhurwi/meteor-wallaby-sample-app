@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
@@ -15,30 +16,29 @@ import * as actionCreators from '../actions/actionCreators';
 import Header from '../components/header';
 import { Loading } from '../components/loading';
 
-const Main = React.createClass({
+class Main extends React.Component {
   render() {
     return (
       <div>
         <Header user={this.props.user} logout={this.props.logout} />
         {React.cloneElement(this.props.children, this.props)}
-        <Alert stack={{limit: 3}} />
+        <Alert stack={{ limit: 3 }} />
       </div>
-    )
+    );
   }
-});
+}
 
 const composer = (params, onReady) => {
-  console.log('ui/layouts/app.js composer: user: ', Meteor.user());
   const user = Meteor.user();
 
   onReady(null, { user });
 };
 
 function mapStateToProps(state) {
-  return  {
+  return {
     accounts: {
-      loggedIn: !!Meteor.user()
-    }
+      loggedIn: !!Meteor.user(),
+    },
   };
 }
 
